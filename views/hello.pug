@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  div.wrapper
+    - const upName = name.toUpperCase();
+    p.hello Hello #{upName}!
+    span#yo Yep.
+    img.dog(src="dog.jpg" alt=`Dog ${name}`)
+
+  h2
+    | Hello
+    em Nesting

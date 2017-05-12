@@ -1,6 +1,6 @@
 ## What is this?
 
-Just you wait folks!
+Me learning some Node things.
 
 ## Sample Data
 

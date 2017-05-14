@@ -19,3 +19,18 @@ exports.getStores = async (req, res) => {
   const stores = await Store.find();
   res.render('stores', { title: 'Stores', stores });
 }
+
+exports.editStore = async (req, res) => {
+  const store = await Store.findById(req.params.id);
+  res.render('editStore', { title: 'Edit Store', store });
+}
+
+exports.updateStore = async (req, res) =>  {
+  const store = await Store.findOneAndUpdate(
+    { _id: req.params.id},
+    req.body,
+    { new: true, runValidators: true }
+  ).exec();
+  req.flash('success', `Successfully updated ${store.name}. <a href="/stores/${store.slug}">View Store</a>`);
+  res.redirect(`/stores/${store._id}/edit`);
+}

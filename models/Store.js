@@ -41,11 +41,18 @@ const storeSchema = new mongoose.Schema({
   },
 });
 
+// Indexes
 storeSchema.index({
   name: 'text',
   description: 'text',
+});
+
+storeSchema.index({
+  location: '2dsphere'
 })
 
+
+// Hooks
 storeSchema.pre('save', async function(next) {
   if(!this.isModified('name')) return next();
 
@@ -60,6 +67,7 @@ storeSchema.pre('save', async function(next) {
   return next();
 });
 
+// Methods
 storeSchema.statics.getTagsList = function() {
   return this.aggregate([
     { $unwind: '$tags' },

@@ -47,4 +47,8 @@ router.post('/account/reset/:token',
   catchErrors(authController.update)
 );
 
+// Api routes
+
+router.get('/api/search', catchErrors(storeController.searchStores));
+
 module.exports = router;

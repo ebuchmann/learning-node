@@ -1,6 +1,6 @@
 ## What is this?
 
-Me learning some Node things.
+Going over the learnnode.com course and saving on github for future reference.
 
 ## Sample Data
 
